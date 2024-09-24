@@ -1,5 +1,5 @@
 module Admin
   class BaseController < ApplicationController
-    before_action :user_authenticate!
+    before_action :authenticate_user!
   end
 end

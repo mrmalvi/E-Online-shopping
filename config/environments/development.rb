@@ -33,6 +33,10 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.active_record.encryption.key = Rails.application.secrets.active_record_encryption_key
+  config.active_record.encryption.key_derivation_salt = Rails.application.secrets.active_record_encryption_key_derivation_salt
+  config.active_record.encryption.deterministic_key = Rails.application.secrets.active_record_encryption_deterministic_key
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 

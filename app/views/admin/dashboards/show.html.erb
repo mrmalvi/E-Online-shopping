@@ -1,0 +1,6 @@
+<% if current_user.admin? %>
+  <%= render 'admin_desk' %>
+<% if current_user.seller? %>
+  <%= render 'seller_desk' %>
+<% end %>
+
