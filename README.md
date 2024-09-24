@@ -27,7 +27,7 @@ Things you may want to cover:
 Users: Admins, Sellers, and Customers with roles using Devise.
 Categories: Example: Electronics, Fashion, Home Decor.
 Products:
-Product name, description, price, stock, SKU, image (Active Storage), and slug (Friendly ID).
+Product name, description, price, stock, SKU(Stock keeping unit), image (Active Storage), and slug (Friendly ID).
 Product Variants: Size, color, etc.
 Cart: Associated with User and LineItems.
 LineItems: Each line item contains a product and its quantity.
