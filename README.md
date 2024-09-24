@@ -124,11 +124,11 @@ Implement sorting by relevance, price, and popularity.
   CDN: Serve static assets and product images through a CDN for faster load times.
 
 # Flow Summary
-  User Registration/Login:
+  * User Registration/Login:
      Authenticates users and allows them to perform role-specific actions.
-  Product Management:
+  * Product Management:
     Sellers list products, and customers search, filter, and view products.
-  Cart and Checkout:
+  * Cart and Checkout:
     Customers add products to carts, proceed to checkout, and complete payments via Razorpay.
     Order Tracking and Review: Customers track their orders and leave reviews, while admins manage order fulfillment.
 
