@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   enum role: { customer: :customer, seller: :seller, admin: :admin }
 
+  has_many :login_activities, as: :user
   has_many :orders
   has_many :carts
   has_many :products #sellers
