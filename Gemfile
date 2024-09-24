@@ -23,7 +23,7 @@ gem 'searchkick'      # ElasticSearch integration for product search
 gem 'bootstrap'       # For frontend UI
 gem 'kaminari'        # For pagination
 gem 'carrierwave'     # For handling file uploads
-gem 'dotenv-rails', :require => 'dotenv/rails-now'
+gem "authtrail" # for devise login tracking
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -58,6 +58,8 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 gem "sassc-rails"
 
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -81,5 +83,4 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-
 end
