@@ -11,6 +11,13 @@ module EOnlineShopping
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    config.active_job.queue_adapter = :sidekiq
+    config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets')
+    if Rails.env.development?
+      env_file = File.join(Rails.root, 'config/.env')
+      Dotenv.load(env_file) if File.exist?(env_file)
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
