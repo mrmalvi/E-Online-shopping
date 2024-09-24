@@ -65,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_24_085841) do
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
     t.float "total_price"
-    t.string "status"
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_24_085841) do
     t.bigint "order_id"
     t.string "payment_method"
     t.text "payment_details"
-    t.string "status"
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

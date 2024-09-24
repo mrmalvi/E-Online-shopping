@@ -4,7 +4,7 @@ class CreatePayments < ActiveRecord::Migration[7.0]
       t.bigint :order_id
       t.string :payment_method
       t.text :payment_details
-      t.string :status
+      t.string :status, default: "pending"
 
       t.timestamps
     end

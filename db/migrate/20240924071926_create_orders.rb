@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[7.0]
     create_table :orders do |t|
       t.bigint :user_id
       t.float :total_price
-      t.string :status
+      t.string :status, default: :pending
 
       t.timestamps
     end
