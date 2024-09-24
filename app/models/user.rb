@@ -9,4 +9,12 @@ class User < ApplicationRecord
   has_many :orders
   has_many :carts
   has_many :products #sellers
+
+  def email_required?
+    false
+  end
+
+  def password_required?
+    false
+  end
 end
