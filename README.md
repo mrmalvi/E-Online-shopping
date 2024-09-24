@@ -24,52 +24,54 @@ Things you may want to cover:
 * ...
 
 
-Users: Admins, Sellers, and Customers with roles using Devise.
-Categories: Example: Electronics, Fashion, Home Decor.
-Products:
-Product name, description, price, stock, SKU(Stock keeping unit), image (Active Storage), and slug (Friendly ID).
-Product Variants: Size, color, etc.
-Cart: Associated with User and LineItems.
-LineItems: Each line item contains a product and its quantity.
-Orders: Order ID, total price, payment status (pending, paid, failed), and associations with User and OrderItems.
-OrderItems: Stores the product details at the time of order.
-3. Implement Features
-User Authentication and Authorization
-Devise: Set up user authentication (admin, seller, and customer roles).
-Pundit: Define roles and permissions for product management, cart access, etc.
-Product Management
-Admin/Seller CRUD Operations:
-Admins/sellers can manage products, images, and categories.
-Product Listing for Customers:
-Product filtering by category, price, and variants.
-Add pagination for product listings using Kaminari.
-Shopping Cart
-Add to Cart:
-Create a session-based cart for guests and a database-backed cart for logged-in users.
-Cart Page:
-List products in the cart with quantity, price, and total.
-Checkout Flow
-Order Creation:
-A form to capture shipping details.
-Calculate total price including tax and shipping.
+# Users:
+   Admins, Sellers, and Customers with roles using Devise.
+  Categories: Example: Electronics, Fashion, Home Decor.
+  Products:
+  Product name, description, price, stock, SKU(Stock keeping unit), image (Active Storage), and slug (Friendly ID).
+  Product Variants: Size, color, etc.
+  Cart: Associated with User and LineItems.
+  LineItems: Each line item contains a product and its quantity.
+  Orders: Order ID, total price, payment status (pending, paid, failed), and associations with User and OrderItems.
+  OrderItems: Stores the product details at the time of order.
+
+# 3. Implement Features
+  User Authentication and Authorization
+  Devise: Set up user authentication (admin, seller, and customer roles).
+  Pundit: Define roles and permissions for product management, cart access, etc.
+  Product Management
+  Admin/Seller CRUD Operations:
+  Admins/sellers can manage products, images, and categories.
+  Product Listing for Customers:
+  Product filtering by category, price, and variants.
+  Add pagination for product listings using Kaminari.
+  Shopping Cart
+  Add to Cart:
+  Create a session-based cart for guests and a database-backed cart for logged-in users.
+  Cart Page:
+  List products in the cart with quantity, price, and total.
+  Checkout Flow
+  Order Creation:
+  A form to capture shipping details.
+  Calculate total price including tax and shipping.
 
 Razorpay Payment Integration
 
-Payment Flow:
+# Payment Flow:
   Create an order with Razorpay when the user clicks the "Pay Now" button.
   Handle Razorpay webhook for payment success/failure.
   Save order details and payment status in the database.
 
-Checkout Page:
+# Checkout Page:
 Add Razorpay checkout button.
   Upon payment success, save the order in the database and update its status to paid.
   Order Management
 
-Admin Dashboard:
+# Admin Dashboard:
 Admin can view/manage all orders.
 Customers can view their own orders.
 
-4. Frontend UI
+# 4. Frontend UI
 Bootstrap:
 
 Install Bootstrap for responsive UI design. Use Webpacker to integrate it.
@@ -84,7 +86,7 @@ Showcase featured products, categories, and discounts.
   Display the shopping cart with products, quantities, and prices.
   Implement a checkout page where users can enter shipping info and proceed to payment.
 
-5. Search and Filter
+# 5. Search and Filter
   Searchkick:
 
 Implement Elasticsearch-based search with searchkick.
@@ -110,14 +112,24 @@ Implement sorting by relevance, price, and popularity.
 9. Deployment
  Environment Setup:
 
-Set up and Redis for production.
+# Set up and Redis for production.
   Integrate Sidekiq with Redis for background jobs.
   Use ActiveStorage with AWS S3 for storing product images.
   SSL & Security:
 
-Secure your app with SSL (HTTPS).
+# Secure your app with SSL (HTTPS).
   Use Rails' built-in security features to prevent CSRF, SQL Injection, and XSS.
   10. Performance Optimization
   Caching: Use fragment caching for frequently accessed products.
   CDN: Serve static assets and product images through a CDN for faster load times.
+
+# Flow Summary
+  User Registration/Login:
+     Authenticates users and allows them to perform role-specific actions.
+  Product Management:
+    Sellers list products, and customers search, filter, and view products.
+  Cart and Checkout:
+    Customers add products to carts, proceed to checkout, and complete payments via Razorpay.
+    Order Tracking and Review: Customers track their orders and leave reviews, while admins manage order fulfillment.
+
 # E-Online-shopping
