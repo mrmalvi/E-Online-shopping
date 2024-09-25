@@ -7,10 +7,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
+          <a class="nav-link" href="<%= users_products_path %>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Orders</a>
+          <a class="nav-link" href="<%= users_dashboard_path %>">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= users_user_path(current_user) %>">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= users_orders_path(current_user) %>">Orders</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Wishlist</a>

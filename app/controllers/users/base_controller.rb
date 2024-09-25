@@ -1,5 +1,6 @@
 module Users
   class BaseController < ApplicationController
+    layout 'dashboard'
     before_action :authenticate_user!
     before_action :ensure_customer!
 

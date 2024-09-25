@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  enum status: { pending: "pending", paid: "paid", shipped: "shipped", delivered: "delivered" }
+  enum status: { pending: "pending", confirmed: "confirmed", cancelled: "cancelled", shipped: "shipped", delivered: "delivered" }
 
   belongs_to :user
   has_many :line_items, dependent: :destroy

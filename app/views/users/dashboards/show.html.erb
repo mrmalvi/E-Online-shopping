@@ -5,7 +5,7 @@
         <a href="#" class="list-group-item list-group-item-action active">
           Dashboard
         </a>
-        <a href="#" class="list-group-item list-group-item-action">My Orders</a>
+        <a href="<%= users_orders_path(current_user) %>" class="list-group-item list-group-item-action">My Orders</a>
         <a href="#" class="list-group-item list-group-item-action">Wishlist</a>
         <a href="#" class="list-group-item list-group-item-action">Settings</a>
       </div>
@@ -27,7 +27,7 @@
           <div class="card text-white bg-success mb-3">
             <div class="card-header">Completed Orders</div>
             <div class="card-body">
-              <h5 class="card-title">5 Orders</h5>
+              <h5 class="card-title"><%= current_user.orders.delivered.count %> Orders</h5>
             </div>
           </div>
         </div>
@@ -35,15 +35,15 @@
           <div class="card text-white bg-warning mb-3">
             <div class="card-header">Pending Orders</div>
             <div class="card-body">
-              <h5 class="card-title">2 Orders</h5>
+              <h5 class="card-title"><%= current_user.orders.pending.count %> Orders</h5>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card text-white bg-danger mb-3">
-            <div class="card-header">Canceled Orders</div>
+            <div class="card-header">Cancelled Orders</div>
             <div class="card-body">
-              <h5 class="card-title">1 Order</h5>
+              <h5 class="card-title"><%= current_user.orders.cancelled.count %> Order</h5>
             </div>
           </div>
         </div>
