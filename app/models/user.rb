@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum role: { customer: "customer", seller: "seller", admin: "admin" }
+  validates :role, presence: true
 
   has_many :login_activities, as: :user
   has_many :orders
