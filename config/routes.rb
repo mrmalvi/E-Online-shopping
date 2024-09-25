@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   end
 
   namespace :users do
+    scope "(:user_id)" do
+      resources :orders
+    end
+    resources :users
+    resources :products
     resource :dashboard
   end
 end

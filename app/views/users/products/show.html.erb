@@ -1,0 +1,23 @@
+<!-- app/views/products/show.html.erb -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="<%= @product.image_url %>" class="img-fluid" alt="<%= @product.name %>">
+    </div>
+    <div class="col-md-6">
+      <h1><%= @product.name %></h1>
+      <p><%= @product.description %></p>
+      <h3>Price: $<%= @product.price %></h3>
+
+      <!-- Order Form -->
+      <%= form_with url: orders_path, method: :post do |f| %>
+        <%= hidden_field_tag :product_id, @product.id %>
+        <%= hidden_field_tag :quantity, 1 %>
+        <%= hidden_field_tag :user_id, current_user.id if current_user %>
+
+        <!-- Submit Button -->
+        <%= f.submit "Place Order", class: "btn btn-primary btn-lg" %>
+      <% end %>
+    </div>
+  </div>
+</div>

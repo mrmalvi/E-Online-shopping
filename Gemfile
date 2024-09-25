@@ -19,7 +19,8 @@ gem 'razorpay'        # Razorpay payment integration
 gem 'sidekiq'         # For background jobs like sending order confirmation emails
 # gem 'active_storage'  # For image uploads (product images)
 gem 'friendly_id'     # For SEO-friendly URLs
-gem 'searchkick'      # ElasticSearch integration for product search
+gem 'searchkick', '~> 5.1'      # ElasticSearch integration for product search
+gem 'elasticsearch', '~> 7.17.7'
 gem 'bootstrap'       # For frontend UI
 gem 'kaminari'        # For pagination
 gem 'carrierwave'     # For handling file uploads
