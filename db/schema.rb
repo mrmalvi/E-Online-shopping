@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_24_105734) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_26_072352) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -92,6 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_24_105734) do
     t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "cart_id"
   end
 
   create_table "payments", force: :cascade do |t|

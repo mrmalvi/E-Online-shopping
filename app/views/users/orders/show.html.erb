@@ -1,0 +1,25 @@
+<h1>Order Details</h1>
+<p><strong>Order ID:</strong> <%= @order.id %></p>
+<p><strong>Total Price:</strong> <%= number_to_currency(@order.total_price) %></p>
+
+<h2>Order Items:</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @line_items.each do |line_item| %>
+      <tr>
+        <td><%= line_item.product.name %></td>
+        <td><%= line_item.quantity %></td>
+        <td><%= number_to_currency(line_item.unit_price) %></td>
+        <td><%= number_to_currency(line_item.quantity * line_item.unit_price) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
