@@ -9,8 +9,13 @@ Rails.application.routes.draw do
 
   namespace :users do
     scope "(:user_id)" do
-      resources :orders
+      resources :orders, only: [:show, :index, :create] do
+        collection do
+          post :buy_now
+        end
+      end
     end
+    resources :line_items, only: [:create, :destroy]
     resources :users
     resources :products
     resource :dashboard

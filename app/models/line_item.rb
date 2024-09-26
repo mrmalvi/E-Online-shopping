@@ -1,10 +1,13 @@
 class LineItem < ApplicationRecord
-  validates :quantity, presence: true
-  belongs_to :cart
+  validates :quantity, numericality: { greater_than_or_equal_to: 1 }
+
+  belongs_to :cart, optional: true
+  belongs_to :order, optional: true
   belongs_to :product
-  belongs_to :order
+
+  scope :cart_product, ->(product) { where(product: product) }
 
   def total_price
-    product.price * quantity
+    product.price.to_f * quantity
   end
 end

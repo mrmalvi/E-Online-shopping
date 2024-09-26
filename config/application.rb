@@ -6,6 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+BUY_RANGE = [[1, 1], [2, 2], [3 ,3], [4, 4], [5, 5], [6, 6]]
 module EOnlineShopping
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
