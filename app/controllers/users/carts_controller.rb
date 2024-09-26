@@ -3,7 +3,8 @@ module Users
     def show
       @cart = current_shopping_cart
       @line_items = @cart.line_items
-      @totol_price = current_shopping_cart.line_items.sum {|item| item.total_price}
+      @totol_price = current_shopping_cart.line_items.sum {|item| item.total_price} || 1
+      @totol_price = @totol_price.zero? ? 1 : @totol_price
 
       @para_attr = {
         "amount": @totol_price.to_i * 100,

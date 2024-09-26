@@ -15,7 +15,7 @@ Rails.application.routes.draw do
         end
       end
     end
-    resources :line_items, only: [:create, :destroy]
+    resources :line_items, only: [:create, :destroy, :update, :destroy]
     resources :carts
     resources :payments, only: [:create]
     resources :users
