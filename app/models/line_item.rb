@@ -1,5 +1,5 @@
 class LineItem < ApplicationRecord
-  validates :quantity, numericality: { greater_than_or_equal_to: 1 }
+  validates :quantity, numericality: { greater_than: 0 }
 
   belongs_to :cart, optional: true
   belongs_to :order, optional: true

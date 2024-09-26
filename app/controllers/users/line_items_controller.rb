@@ -4,11 +4,10 @@ module Users
     end
 
     def create
-      @line_item = current_shopping_cart.line_items.new
       @product = Product.find(params[:product_id])
-      line_item = @cart.line_items.find_or_initialize_by(product: @product)
-      line_item.quantity += 1
-      if @line_item.save
+      line_item = current_shopping_cart.line_items.find_or_initialize_by(product: @product)
+      line_item.increment!(:quantity)
+      if line_item.save
         flash[:notice] = "Add to cart successfully!"
       else
         flash[:alert] = "Add to cart failed!"
