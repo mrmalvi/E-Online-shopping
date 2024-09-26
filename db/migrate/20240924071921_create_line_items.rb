@@ -5,7 +5,7 @@ class CreateLineItems < ActiveRecord::Migration[7.0]
       t.bigint :order_id
       t.bigint :product_id
       t.bigint :product_variant_id
-      t.integer :quantity
+      t.integer :quantity, default: 0
       t.float :total_price
 
       t.timestamps
