@@ -24,7 +24,7 @@
             </td>
             <td>
               <!-- Quantity update form -->
-              <%= form_with model: line_item, url: users_line_item_path(line_item), method: :patch, local: true, class: "d-inline" do |f| %>
+              <%= form_with model: line_item, url: users_line_item_path(line_item), method: :put, local: true, class: "d-inline" do |f| %>
                 <%= f.number_field :quantity, value: line_item.quantity, min: 1, class: "form-control form-control-sm w-50" %>
                 <%= f.submit "Update", class: "btn btn-sm btn-primary mt-2" %>
               <% end %>
