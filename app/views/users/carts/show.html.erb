@@ -30,7 +30,7 @@
               <% end %>
             </td>
             <td>
-              <%= number_to_currency(line_item.quantity * line_item.product.price) %>
+              <%= number_to_currency(line_item.total_price, unit: "Rs ") %>
             </td>
             <td>
               <!-- Remove from cart -->
