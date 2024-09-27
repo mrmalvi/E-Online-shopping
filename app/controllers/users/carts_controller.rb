@@ -15,7 +15,6 @@ module Users
           "key2": "value2"
         }
       }
-      Razorpay::Order.create(@para_attr)
       @order_id = Razorpay::Order.create(@para_attr).attributes.dig("id")
     end
   end
