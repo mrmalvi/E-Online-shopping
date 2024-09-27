@@ -9,6 +9,9 @@ var options = {
     "description": "Test Transaction",
     "image": "https://example.com/your_logo",
     "order_id": "<%= @order_id %>", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "callback_url": "<%= users_orders_url(current_user) %>",
+    "callback_method": "post",
+    "redirect": true,
     "handler": function (response){
         alert(response.razorpay_payment_id);
         alert(response.razorpay_order_id);
