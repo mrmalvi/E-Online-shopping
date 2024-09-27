@@ -232,6 +232,8 @@ GEM
       activesupport (>= 3.0.0)
     racc (1.8.1)
     rack (2.2.9)
+    rack-cors (2.0.2)
+      rack (>= 2.0.0)
     rack-test (2.1.0)
       rack (>= 1.3)
     rails (7.0.8.4)
@@ -368,6 +370,7 @@ DEPENDENCIES
   kaminari
   puma (~> 5.0)
   pundit
+  rack-cors
   rails (~> 7.0.8, >= 7.0.8.4)
   razorpay
   sassc-rails
