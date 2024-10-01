@@ -9,7 +9,7 @@ module BootstrapHelper
     # end
     options[:class] = [options[:class], "btn btn-success"].compact.join(' ')
     options[:method] = :post
-    cart_count = current_shopping_cart.line_items.cart_product(product).count
+    cart_count = current_shopping_cart.line_items.not_completed.cart_product(product).count
     @total_items = "x[#{cart_count}]" if !cart_count.zero?
     link_to(users_line_items_path(product_id: product.id), options, data: {}) do
       "Add Cart #{@total_items}"

@@ -8,7 +8,7 @@ class LineItem < ApplicationRecord
 
   scope :cart_product, ->(product) { where(product: product) }
 
-  def total_price
+  def total_amount
     product.price.to_f * quantity
   end
 end
