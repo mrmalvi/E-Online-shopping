@@ -13,7 +13,7 @@
           <a class="nav-link" href="<%= users_cart_path(current_shopping_cart) %>">
             <i class="fas fa-shopping-cart"></i>
             <span class="badge bg-danger" id="cart-item-count">
-              <%= current_shopping_cart.line_items.count if user_signed_in? %>
+              <%= active_cart_line_items.count if user_signed_in? %>
             </span>
           </a>
         </li>

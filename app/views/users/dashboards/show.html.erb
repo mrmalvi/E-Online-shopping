@@ -24,6 +24,14 @@
 
       <div class="row mt-4">
         <div class="col-md-4">
+          <div class="card text-white bg-secondary mb-3">
+            <div class="card-header">Confirmed Orders</div>
+            <div class="card-body">
+              <h5 class="card-title"><%= current_user.orders.confirmed.count %> Orders</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
           <div class="card text-white bg-success mb-3">
             <div class="card-header">Completed Orders</div>
             <div class="card-body">
