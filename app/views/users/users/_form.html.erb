@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h3>Edit Profile</h3>
+        </div>
+        <div class="card-body">
+          <%= form_for(current_user, url: users_user_path(current_user), method: :put) do |f| %>
+
+            <div class="form-group">
+              <%= f.label :name, "Full Name" %>
+              <%= f.text_field :name, class: "form-control", placeholder: "Enter your full name" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :email, "Email Address" %>
+              <%= f.email_field :email, class: "form-control", placeholder: "Enter your email address" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :phone, "Phone Number" %>
+              <%= f.telephone_field :phone, class: "form-control", placeholder: "Enter your phone number" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password, "New Password" %>
+              <%= f.password_field :password, class: "form-control", placeholder: "Enter a new password (leave blank if unchanged)" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password_confirmation, "Confirm Password" %>
+              <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm your new password" %>
+            </div>
+
+            <div class="form-group mt-4">
+              <%= f.submit "Save Changes", class: "btn btn-success btn-block" %>
+            </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
