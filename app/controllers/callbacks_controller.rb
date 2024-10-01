@@ -24,7 +24,7 @@ class CallbacksController < ActionController::Base
 
   private
     def associate_line_items_with_order(order)
-      current_shopping_cart.line_items.each do |line_item|
+      current_shopping_cart.line_items.not_completed.each do |line_item|
         line_item.update(order: order, status: :completed)
       end
     end
