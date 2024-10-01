@@ -45,8 +45,8 @@
     <div class="card">
       <div class="card-body">
         <h4>Cart Summary</h4>
-        <p><strong>Total Items:</strong> <%= @cart.line_items.sum(:quantity) %></p>
-        <p><strong>Total Price:</strong> <%= number_to_currency(@cart.line_items.sum { |item| item.total_price }, unit: "Rs ") %></p>
+        <p><strong>Total Items:</strong> <%= @line_items.sum(:quantity) %></p>
+        <p><strong>Total Price:</strong> <%= number_to_currency(@line_items.sum { |item| item.total_price }, unit: "Rs ") %></p>
         <%= link_to "Proceed to Checkout", "", class: "btn btn-success", id: "rzp-paynow-click-button" %>
       </div>
     </div>

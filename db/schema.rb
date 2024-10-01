@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_26_072352) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_01_060826) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -53,14 +53,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_26_072352) do
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.bigint "cart_id"
-    t.bigint "order_id"
-    t.bigint "product_id"
-    t.bigint "product_variant_id"
+    t.integer "cart_id"
+    t.integer "order_id"
+    t.integer "product_id"
+    t.integer "product_variant_id"
     t.integer "quantity", default: 0
     t.float "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "pending"
   end
 
   create_table "login_activities", force: :cascade do |t|
@@ -96,12 +97,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_26_072352) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.bigint "order_id"
+    t.integer "order_id"
     t.string "payment_method"
     t.text "payment_details"
     t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "external_payment_id"
+    t.string "external_order_id"
+    t.float "total_price"
   end
 
   create_table "product_variants", force: :cascade do |t|

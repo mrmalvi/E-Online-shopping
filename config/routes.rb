@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root "welcome#index"
 
+  post "/callbacks", to: "callbacks#create", as: :razorpay_callback
+
   namespace :admin do
     resource :dashboard
   end

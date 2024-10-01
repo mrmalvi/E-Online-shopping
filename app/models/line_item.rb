@@ -1,4 +1,5 @@
 class LineItem < ApplicationRecord
+  enum status: { pending: "pending", completed: "completed" }
   validates :quantity, numericality: { greater_than: 0 }
 
   belongs_to :cart, optional: true
