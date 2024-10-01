@@ -3,7 +3,8 @@ class CallbacksController < ActionController::Base
 
   def create
     if RazorpayClient.verify_payment_signature?(params)
-      total_price = current_shopping_cart&.total_price
+      current_shopping_cart.deactivated!
+      total_price = current_shopping_cart&.pending_total_amount
       @order = Order.new(
         user: current_user,
         total_price: total_price
@@ -12,6 +13,7 @@ class CallbacksController < ActionController::Base
         @order.confirmed!
         @order.create_payment(status: :success, external_payment_id: params[:razorpay_payment_id], external_order_id: params[:razorpay_order_id], total_price: total_price)
         associate_line_items_with_order(@order)
+        current_shopping_cart.activated!
         flash[:notice] = "Your order has been placed successfully!"
       else
         flash[:alert] = "There was an issue placing your order."
@@ -25,7 +27,7 @@ class CallbacksController < ActionController::Base
   private
     def associate_line_items_with_order(order)
       current_shopping_cart.line_items.not_completed.each do |line_item|
-        line_item.update(order: order, status: :completed)
+        line_item.update(order: order, status: :completed, total_price: line_item.total_amount)
       end
     end
 

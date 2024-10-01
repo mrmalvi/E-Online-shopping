@@ -30,7 +30,7 @@
               <% end %>
             </td>
             <td>
-              <%= number_to_currency(line_item.total_price, unit: "Rs ") %>
+              <%= number_to_currency(line_item.total_amount, unit: "Rs ") %>
             </td>
             <td>
               <!-- Remove from cart -->
@@ -46,7 +46,7 @@
       <div class="card-body">
         <h4>Cart Summary</h4>
         <p><strong>Total Items:</strong> <%= @line_items.sum(:quantity) %></p>
-        <p><strong>Total Price:</strong> <%= number_to_currency(@line_items.sum { |item| item.total_price }, unit: "Rs ") %></p>
+        <p><strong>Total Price:</strong> <%= number_to_currency(@line_items.sum { |item| item.total_amount }, unit: "Rs ") %></p>
         <%= link_to "Proceed to Checkout", "", class: "btn btn-success", id: "rzp-paynow-click-button" %>
       </div>
     </div>
