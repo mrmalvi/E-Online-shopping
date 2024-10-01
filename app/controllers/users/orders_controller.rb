@@ -6,7 +6,7 @@ module Users
     end
 
     def index
-      @orders = current_user.orders
+      @orders = current_user.orders.recent
       @line_items = current_shopping_cart.line_items
     end
   end
