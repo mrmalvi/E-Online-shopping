@@ -5,9 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email, format: { with: Devise.email_regexp }, allow_blank: true
+  validates :role, presence: true
+  validate :check_password, :check_phone_number
 
   enum role: { customer: "customer", seller: "seller", admin: "admin" }
-  validates :role, presence: true
 
   has_many :login_activities, as: :user
   has_many :orders
@@ -27,5 +28,17 @@ class User < ApplicationRecord
 
   def password_required?
     false
+  end
+
+  def check_password
+    if password != password_confirmation
+      errors.add(:password, "Incorrect")
+    end
+  end
+
+  def check_phone_number
+    if !Phonelib.valid?(phone)
+      errors.add(:phone, "Incorrect")
+    end
   end
 end
