@@ -26,6 +26,7 @@ gem 'kaminari'        # For pagination
 gem 'carrierwave'     # For handling file uploads
 gem "authtrail" # for devise login tracking
 gem "rack-cors"
+gem 'phonelib'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
