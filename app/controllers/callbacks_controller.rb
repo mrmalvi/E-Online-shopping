@@ -12,7 +12,7 @@ class CallbacksController < ActionController::Base
       if current_user && @order.save
         @order.confirmed!
         @order.create_payment(status: :success, external_payment_id: params[:razorpay_payment_id], external_order_id: params[:razorpay_order_id], total_price: total_price)
-        associate_line_items_with_order(@order)
+        current_shopping_cart.associate_line_items_with_order(@order)
         current_shopping_cart.activated!
         flash[:notice] = "Your order has been placed successfully!"
       else
@@ -25,11 +25,6 @@ class CallbacksController < ActionController::Base
   end
 
   private
-    def associate_line_items_with_order(order)
-      current_shopping_cart.pending_line_items.each do |line_item|
-        line_item.update(order: order, status: :completed, total_price: line_item.total_amount)
-      end
-    end
 
     def current_shopping_cart
       @current_shopping_cart ||= if current_user

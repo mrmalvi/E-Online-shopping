@@ -16,4 +16,17 @@ class RazorpayClient
   def self.fetch_notes(payment_id)
     fetch_payment(payment_id).dig('notes')
   end
+
+  def self.create_order(totol_price, user_id, cart_id)
+    para_attr = {
+      "amount": totol_price.to_i * 100,
+      "currency": "INR",
+      "receipt": "receipt#1",
+      "notes": {
+        "customer_id": user_id,
+        "cart_id": cart_id
+      }
+    }
+    Razorpay::Order.create(para_attr).attributes
+  end
 end
