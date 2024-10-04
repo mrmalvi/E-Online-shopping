@@ -4,9 +4,10 @@
 // import "@hotwired/turbo-rails"
 
 // loader for dashboard layout pages
-function hideLoader() {
-  $('#loader-main-wrapper').hide();
-}
-$(document).ready(function() {
-  hideLoader();
-});
+
+// function hideLoader() {
+//   $('#loader-main-wrapper').hide();
+// }
+// $(document).ready(function() {
+//   hideLoader();
+// });
