@@ -12,7 +12,8 @@ module Users
       if current_shopping_cart.activated? && line_item.save
         flash[:notice] = "Add to cart successfully!"
       else
-        flash[:alert] = "Add to cart failed!"
+        flash[:alert] = line_item.errors.full_messages.to_sentence
+        flash[:alert] ||= "Add to cart failed!"
       end
       redirect_to users_products_path
     end

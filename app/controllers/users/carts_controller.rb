@@ -5,16 +5,7 @@ module Users
       @line_items = @cart.pending_line_items
       @totol_price = @line_items.sum {|item| item.total_amount} || 1
       @totol_price = @totol_price.zero? ? 1 : @totol_price
-      @para_attr = {
-        "amount": @totol_price.to_i * 100,
-        "currency": "INR",
-        "receipt": "receipt#1",
-        "notes": {
-          "customer_id": current_user.id,
-          "cart_id": @cart.id
-        }
-      }
-      @order_id = Razorpay::Order.create(@para_attr).attributes.dig("id")
+      @order_id = RazorpayClient.create_order(@totol_price, current_user.id, @cart.id).dig("id")
     end
   end
 end
