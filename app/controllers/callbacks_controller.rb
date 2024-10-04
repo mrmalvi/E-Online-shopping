@@ -26,7 +26,7 @@ class CallbacksController < ActionController::Base
 
   private
     def associate_line_items_with_order(order)
-      current_shopping_cart.line_items.not_completed.each do |line_item|
+      current_shopping_cart.pending_line_items.each do |line_item|
         line_item.update(order: order, status: :completed, total_price: line_item.total_amount)
       end
     end
@@ -38,7 +38,11 @@ class CallbacksController < ActionController::Base
     end
 
     def current_user
-      @current_user ||= User.find_by(id: fetch_notes['customer_id'])
+      @current_user ||= begin
+        user = User.find_by(id: fetch_notes['customer_id'])
+        sign_in user
+        user
+      end
     end
 
     def fetch_notes

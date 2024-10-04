@@ -2,7 +2,7 @@ module Users
   class CartsController < BaseController
     def show
       @cart = current_shopping_cart
-      @line_items = @cart.line_items.not_completed
+      @line_items = @cart.pending_line_items
       @totol_price = @line_items.sum {|item| item.total_amount} || 1
       @totol_price = @totol_price.zero? ? 1 : @totol_price
       @para_attr = {
