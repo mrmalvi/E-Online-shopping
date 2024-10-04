@@ -13,20 +13,21 @@
       <!-- Order Row -->
       <tr class="table-primary">
         <td><%= index + 1 %></td>
-        <td>Rs <%= order.total_price %></td>
+        <td>Total: Rs <%= order.total_price %></td>
         <td><%= display_created_date(order.created_at) %></td>
+        <td><%= order.payment&.external_order_id %></td>
       </tr>
 
       <!-- Line Items Sub-list -->
       <tr>
-        <td colspan="3">
+        <td colspan="4">
           <div class="ml-4">
             <h6>Items:</h6>
             <ul class="list-group">
               <% order.line_items.each do |line_item| %>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   <%= line_item.product.name %>
-                  <span class="badge badge-primary badge-pill">Rs <%= line_item.total_price %></span>
+                  <span>Rs <%= line_item.total_price %></span>
                   <span><%= line_item.quantity %> Unit</span>
                 </li>
               <% end %>
