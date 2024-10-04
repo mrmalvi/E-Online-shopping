@@ -8,6 +8,10 @@ class Cart < ApplicationRecord
   end
 
   def pending_total_amount
-    line_items.not_completed.to_a.sum { |item| item.total_amount }.to_i
+    pending_line_items.to_a.sum { |item| item.total_amount }.to_i
+  end
+
+  def pending_line_items
+    @pending_line_items ||= line_items.not_completed
   end
 end
